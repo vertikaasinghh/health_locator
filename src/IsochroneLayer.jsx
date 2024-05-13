@@ -29,7 +29,15 @@ const IsochroneLayer = ({ map, location, minutes, mode }) => {
 
     }, [map, location, minutes, mode]); // Dependencies
 
-    return null;
+    return (
+      <div>
+        {nearbyHospitals.length > 0 ? (
+          nearbyHospitals.map(hospital => <div key={hospital.id}>{hospital.name}</div>)
+        ) : (
+          <p>No hospitals found within 10 minutes range.</p>
+        )}
+      </div>
+    );
 };
 
 export default IsochroneLayer;
